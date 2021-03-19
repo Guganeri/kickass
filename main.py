@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 import csv
 
-PATH_WEBDRIVER="/home/android/Downloads/chromedriver"
+PATH_WEBDRIVER=""
 WINDOW_SIZE = "1920,1080"
 
 
