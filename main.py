@@ -3,14 +3,14 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-
+import csv
 
 PATH_WEBDRIVER="/home/android/Downloads/chromedriver"
-WEB_REPORT=""
 WINDOW_SIZE = "1920,1080"
 
 
-class Report:
+def report(url):
+    WEB_REPORT = url
     i = 1
     while i < 11:
         print (f'Report: {i} | Meliante: {WEB_REPORT}')
@@ -31,7 +31,19 @@ class Report:
         driver.find_element(By.CSS_SELECTOR, ".csgo > .option_label").click()
         driver.find_element(By.CSS_SELECTOR, ".ui:nth-child(3) > label").click()
         driver.find_element(By.ID, "report_confirm").click()
-          
+
+with open('blacklist.csv', newline='') as f:
+
+    count = 0
+    reader = csv.reader(f)    
+    data = list(reader)
+    lenList = len(data)
+
+    while count < lenList:     
+        perfil = data[count+4]
+        report(perfil[-1])
+        print("------------------NEXT REPORT ------------------")
+        count += 1
 
 #def main():
 #    #main()
