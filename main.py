@@ -40,7 +40,7 @@ with open('blacklist.csv', newline='') as f:
     lenList = len(data)
 
     while count < lenList:     
-        perfil = data[count+4]
+        perfil = data[count]
         report(perfil[-1])
         print("------------------NEXT REPORT ------------------")
         count += 1
